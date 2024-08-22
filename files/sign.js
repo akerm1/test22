@@ -82,7 +82,8 @@ signInForm.addEventListener('submit', (e) => {
         console.log('Signed in as:', user.email);
         signInStatus.textContent = 'Sign in successful';
         signInStatus.style.color = 'green';
-        window.location.href = 'https://akerm1.github.io/test2/index.html';  // Redirect after successful sign-in
+     window.location.href = 'https://akerm1.github.io/test2/index.html';
+
     } catch (error) {
         console.error(error.message);
         signInStatus.textContent = 'Sign in failed: ' + error.message;
