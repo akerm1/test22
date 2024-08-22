@@ -75,19 +75,23 @@ signInForm.addEventListener('submit', (e) => {
     const password = document.getElementById('signInPassword').value;
 
     signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            console.log('Signed in as:', user.email);
-            signInStatus.textContent = 'Sign in successful';
-            signInStatus.style.color = 'green';
-            window.location.href = 'https://akerm1.github.io/test2/index.html';  // Redirect after successful sign-in
-        })
-        .catch((error) => {
-            console.error(error.message);
-            signInStatus.textContent = 'Sign in failed: ' + error.message;
-            signInStatus.style.color = 'red';
-        });
-});
+    async function signInUser(email, password) {
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        console.log('Signed in as:', user.email);
+        signInStatus.textContent = 'Sign in successful';
+        signInStatus.style.color = 'green';
+        window.location.href = 'https://akerm1.github.io/test2/index.html';  // Redirect after successful sign-in
+    } catch (error) {
+        console.error(error.message);
+        signInStatus.textContent = 'Sign in failed: ' + error.message;
+        signInStatus.style.color = 'red';
+    }
+}
+
+// Example usage
+signInUser(email, password);
 
 // Google Sign-In
 document.getElementById('googleSignInButton').addEventListener('click', () => {
