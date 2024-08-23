@@ -160,7 +160,9 @@ align-items: center;
 
 
 
-
+.searchbx{
+  display: none;
+}
 
 
 .searchBox {
