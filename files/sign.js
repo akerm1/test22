@@ -94,24 +94,7 @@ signInForm.addEventListener('submit', async (e) => {
 // Example usage
 signInUser(email, password);
 
-// Google Sign-In
-document.getElementById('googleSignInButton').addEventListener('click', () => {
-    const provider = new GoogleAuthProvider();
-    
-    signInWithPopup(auth, provider)
-    .then((result) => {
-        const user = result.user;
-        console.log('Google Sign-In successful:', user.displayName);
-        signInStatus.textContent = `Signed in as ${user.displayName}`;
-        signInStatus.style.color = 'green';
-        window.location.href = 'https://akerm1.github.io/test2/index.html';  // Redirect after successful Google Sign-In
-    })
-    .catch((error) => {
-        console.error("Error during Google Sign-In:", error);
-        signInStatus.textContent = `Error: ${error.message}`;
-        signInStatus.style.color = 'red';
-    });
-});
+
 
 
 
